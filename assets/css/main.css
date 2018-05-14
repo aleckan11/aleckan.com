@@ -859,12 +859,12 @@
 /* About transition */
 
 .animate-in {
-    -webkit-animation: fadeIn 1.5s ease-in;
-    animation: fadeIn 1.5s ease-in;
+    -webkit-animation: fadeIn .5s ease-in;
+    animation: fadeIn .5s ease-in;
 }
 .animate-out {
-    -webkit-transition: opacity 1.5s;
-    transition: opacity 1.5s;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
     opacity: 0;
 }
 @-webkit-keyframes fadeIn {
