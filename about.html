@@ -31,7 +31,7 @@
 			gtag('config', 'UA-116705163-1');
 		</script>
 	</head>
-	<body class="preload animate-in">
+	<body class="animate-in">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -110,10 +110,6 @@
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
 			<script>
-				$(window).load(function() {
-				  $("body").removeClass("preload");
-				});
-
 				window.addEventListener("beforeunload", function () {
 	  			document.body.classList.add("animate-out");
 				});
