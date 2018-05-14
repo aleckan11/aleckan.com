@@ -29,11 +29,14 @@
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'UA-116705163-1');
+
+			window.onpageshow = function (event) {
+		    if (event.persisted) {
+		        window.location.reload();
+		    }
+			};
 		</script>
 	</head>
-	<iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">
-		this frame prevents back forward cache
-	</iframe>
 	<body class="is-loading">
 
 		<!-- Wrapper -->
