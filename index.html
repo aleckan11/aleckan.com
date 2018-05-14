@@ -112,6 +112,16 @@
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
 			<script>
+				$(window).load(function() {
+					$("body").removeClass("preload");
+				});
+
+				window.onpageshow = function (event) {
+				    if (event.persisted) {
+				        window.location.reload();
+				    }
+				};
+
 				window.addEventListener("beforeunload", function () {
 					document.body.classList.add("animate-out");
 				});
