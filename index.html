@@ -32,7 +32,7 @@
 
 		</script>
 	</head>
-	<body class="is-loading preload">
+	<body class="preload animate-in">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -115,19 +115,20 @@
 				$(window).load(function() {
 					$("body").removeClass("preload");
 				});
-				
+
 				window.onpageshow = function (event) {
 				    if (event.persisted) {
 				        window.location.reload();
 				    }
 				};
 
+				window.addEventListener("beforeunload", function () {
+					document.body.classList.add("animate-out");
+				});
+
 				if ('addEventListener' in window) {
 					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-					window.addEventListener("beforeunload", function () {
-						document.body.classList.add("animate-out");
-					});
 				}
 			</script>
 	</body>

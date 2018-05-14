@@ -865,14 +865,14 @@
 .animate-out {
     -webkit-transition: opacity .25s;
     transition: opacity .25s;
-    opacity: 0.5;
+    opacity: 0.25;
 }
 @-webkit-keyframes fadeIn {
-    from { opacity: 0.5; }
+    from { opacity: 0.25; }
     to { opacity: 1; }
 }
 @keyframes fadeIn {
-    from { opacity: 0.5; }
+    from { opacity: 0.25; }
     to { opacity: 1; }
 }
 
