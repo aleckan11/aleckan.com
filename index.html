@@ -112,10 +112,6 @@
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
 			<script>
-				$(window).load(function() {
-					$("body").removeClass("preload");
-				});
-
 				window.addEventListener("beforeunload", function () {
 					document.body.classList.add("animate-out");
 				});
