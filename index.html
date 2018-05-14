@@ -32,7 +32,7 @@
 
 		</script>
 	</head>
-	<body class="preload is-loading">
+	<body class="is-loading">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -112,11 +112,6 @@
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
 			<script>
-
-				$(window).load(function() {
-					$("body").removeClass("preload");
-				});
-
 				window.onpageshow = function (event) {
 				    if (event.persisted) {
 				        window.location.reload();
