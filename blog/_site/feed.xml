@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Alec Kan</title>
+        <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml"/>
+        <link>http://localhost:4000/blog/</link>
+        <description></description>
+        <pubDate>Tue, 05 Jun 2018 23:55:52 -0400</pubDate>
+        
+        <item>
+            <title>Welcome!</title>
+            <link>/blog/2018/05/27/welcome-to-jekyll.html</link>
+            <guid isPermaLink="true">/blog/2018/05/27/welcome-to-jekyll.html</guid>
+            <description>&lt;p&gt;Hi!&lt;/p&gt;
+
+&lt;p&gt;Welcome to my blog in which I hope to chronicle some of the adventures I take and share them with you. &lt;!--more--&gt; In this first post, I’d like to share a little about my plans. I am currently an undergraduate at UC Berkeley studying Economics and Data Science and expecting to graduate in May of 2020, trying to make the most of what should be an exciting break from school. I write this from 30,000 feet, flying to New York City, the first destination of my travel for this summer, and next month will travel to Tel Aviv, Israel, to hopefully gain some perspective into the field of Data Analytics as well as get some sun and adventures by the Mediterranean Sea. I’ll keep this page up to date with some pictures and thoughts on my experiences.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
+
+&lt;p&gt;–Alec&lt;/p&gt;
+</description>
+            <pubDate>Sun, 27 May 2018 00:00:00 -0400</pubDate>
+        </item>
+        
+    </channel>
+</rss>
