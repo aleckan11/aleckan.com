@@ -926,3 +926,15 @@ xclip
 .cd-headline.clip b.is-visible {
   opacity: 1;
 }
+
+/* Flexbox */
+.flex{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: space-around;
+}
+
+
