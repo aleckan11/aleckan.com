@@ -167,8 +167,23 @@
 			transition: color 0.2s ease, text-shadow 0.2s ease;
 		}
 
+		a:link {
+			color: #414f57; 
+			text-decoration: none;
+		}
+
+		a:visited {
+			color: #414f57;
+			text-decoration: none;
+		}
 		a:hover {
 			color: #c1846c;
+			text-decoration: none;
+		}
+		a:active {
+			color: #c1846c;
+			background-color: transparent;
+			text-decoration: none;
 		}
 
 	strong, b {
@@ -990,7 +1005,7 @@ xclip
 /* Right content */
 .cbp_tmtimeline > li .cbp_tmlabel {
 	margin: 0 0 15px 25%;
-	background: #d7e6b3;
+	background: #b3d7e6;
 	color: #414f57;
 	padding: 1em;
 	font-size: 1em;
@@ -1001,9 +1016,14 @@ xclip
 	text-align: left
 }
 
-.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
-	background: #b3d7e6;
+.cbp_tmtimeline > li:nth-child(3n-1) .cbp_tmlabel {
+	background: #d7e6b3;
 }
+
+.cbp_tmtimeline > li:nth-child(3n) .cbp_tmlabel {
+	background: #c2b3e6;
+}
+
 
 .cbp_tmtimeline > li .cbp_tmlabel h2 { 
 	margin-top: 0px;
@@ -1020,13 +1040,17 @@ xclip
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-	border-right-color: #d7e6b3;
+	border-right-color: #b3d7e6;
 	border-width: 15px;
 	top: 8%;
 }
 
-.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
-	border-right-color: #b3d7e6;
+.cbp_tmtimeline > li:nth-child(3n-1) .cbp_tmlabel:after {
+	border-right-color: #d7e6b3;
+}
+
+.cbp_tmtimeline > li:nth-child(3n) .cbp_tmlabel:after {
+	border-right-color: #c2b3e6;
 }
 			
 /* Example Media Queries */
