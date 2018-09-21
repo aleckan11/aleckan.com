@@ -168,7 +168,7 @@
 		}
 
 		a:link {
-			color: #414f57; 
+			color: #414f57;
 			text-decoration: none;
 		}
 
@@ -921,9 +921,9 @@
   opacity: 1;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xclip 
+xclip
 
 -------------------------------- */
 .cd-headline.clip span {
@@ -958,7 +958,7 @@ xclip
 	padding: 0;
 	list-style: none;
 	position: relative;
-} 
+}
 
 /* The line */
 .cbp_tmtimeline:before {
@@ -1025,7 +1025,7 @@ xclip
 }
 
 
-.cbp_tmtimeline > li .cbp_tmlabel h2 { 
+.cbp_tmtimeline > li .cbp_tmlabel h2 {
 	margin-top: 0px;
 	padding: 0 0 10px 0;
 	border-bottom: 1px solid rgba(255,255,255,0.4);
@@ -1052,7 +1052,7 @@ xclip
 .cbp_tmtimeline > li:nth-child(3n) .cbp_tmlabel:after {
 	border-right-color: #c2b3e6;
 }
-			
+
 /* Example Media Queries */
 @media screen and (max-width: 47.2em) {
 	.cbp_tmtimeline:before {
@@ -1085,7 +1085,5 @@ xclip
 		float: right;
 		left: auto;
 		margin: -45px 5px 0 0px;
-	}	
+	}
 }
-
-
