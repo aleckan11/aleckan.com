@@ -3294,7 +3294,7 @@ load animation
 
 header {
   /* This section calls the slideInFromLeft animation we defined above */
-  animation: 1s ease-out 0.25s 1 slideInFromLeft, 0.25s ease-in 0s 1 transparent;
+  animation: 0.9s ease-out 0.25s 1 slideInFromLeft, 0.25s ease-in 0s 1 transparent;
 }
 
 #main {
