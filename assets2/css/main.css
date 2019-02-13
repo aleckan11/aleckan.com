@@ -87,6 +87,7 @@ input, select, textarea {
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+			opacity: 0;
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
 			-ms-animation: none !important;
@@ -3259,6 +3260,15 @@ load animation
 
 -------------------------------- */
 
+@keyframes transparent {
+  0% {
+		opacity: 0;
+  }
+  100% {
+		opacity: 0;
+  }
+}
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -3284,10 +3294,10 @@ load animation
 
 header {
   /* This section calls the slideInFromLeft animation we defined above */
-  animation: 1s ease-in 0.5s 1 slideInFromLeft;
+  animation: 1s ease-out 0.25s 1 slideInFromLeft, 0.25s ease-in 0s 1 transparent;
 }
 
 #main {
   /* This section calls the slideInFromBottom animation we defined above */
-  animation: 0.75s ease-in 0s 1 slideInFromBottom;
+  animation: 0.7s ease-out 0s 1 slideInFromBottom;
 }
