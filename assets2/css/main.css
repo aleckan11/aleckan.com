@@ -3259,7 +3259,7 @@ xclip
 load animation
 
 -------------------------------- */
-/* 
+
 @keyframes transparent {
   0% {
 		opacity: 0;
@@ -3300,4 +3300,4 @@ header {
 #main {
   /* This section calls the slideInFromBottom animation we defined above */
   animation: 0.7s ease-out 0s 1 slideInFromBottom;
-} */
+}
