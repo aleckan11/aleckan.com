@@ -3252,3 +3252,42 @@ xclip
 .cd-headline.clip b.is-visible {
   opacity: 1;
 }
+
+/* --------------------------------
+
+load animation
+
+-------------------------------- */
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+		opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+		opacity: 100%;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(50%);
+		opacity: 0;
+
+  }
+  100% {
+    transform: translateY(0);
+		opacity: 100%;
+  }
+}
+
+header {
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s ease-in 0.5s 1 slideInFromLeft;
+}
+
+#main {
+  /* This section calls the slideInFromBottom animation we defined above */
+  animation: 0.75s ease-in 0s 1 slideInFromBottom;
+}
