@@ -2584,7 +2584,7 @@ input, select, textarea {
 		position: fixed;
 		text-align: right;
 		top: 0;
-		width: 45%;
+		width: 40%;
 	}
 
 		#header > * {
@@ -2681,10 +2681,10 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		margin-left: 45%;
+		margin-left: 40%;
 		max-width: 54em;
 		padding: 8em 4em 4em 4em;
-		width: calc(100% - 45%);
+		width: calc(100% - 40%);
 	}
 
 		#main > section {
