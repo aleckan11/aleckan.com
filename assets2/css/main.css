@@ -132,7 +132,7 @@ input, select, textarea {
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 0.25em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -3207,6 +3207,67 @@ input, select, textarea {
 
 	}
 
+
+.left-indent{
+	padding-left:10px;border-left:.5px solid rgba(0,0,0,.3);
+}
+
+.column {
+  flex: 50%;
+}
+
+.babyblue{
+	color:#7AAAD1
+}
+
+.skillbar {
+position:relative;
+display:block;
+margin-bottom:15px;
+width:100%;
+background:#eee;
+height:35px;
+border-radius:3px;
+transition:0.1s linear;
+transition-property:width, background-color;
+}
+.skillbar-title {
+position:absolute;
+top:0;
+left:0;
+width:115px;
+font-size:13px;
+color:#414f57;
+background:#6adcfa;
+border-top-left-radius:3px;
+opacity: 0.8;
+border-bottom-left-radius:3px;
+}
+.skillbar-title span {
+display:inline;
+padding:0px;
+height:35px;
+line-height:35px;
+border-top-left-radius:3px;
+border-bottom-left-radius:3px;
+}
+.skillbar-bar {
+height:35px;
+width:0px;
+background:#6adcfa;
+opacity: 0.5;
+border-radius:3px;
+}
+.skill-bar-percent {
+position:absolute;
+right:10px;
+top:0;
+font-size:11px;
+height:35px;
+line-height:35px;
+color:#414f57;
+}
+}
 
 
 /* Word Rotation */

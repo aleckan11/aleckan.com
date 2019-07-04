@@ -130,12 +130,12 @@ jQuery(document).ready(function($){
 		typeLettersDelay = 150,
 		selectionDuration = 500,
 		typeAnimationDelay = selectionDuration + 800,
-		//clip effect 
+		//clip effect
 		revealDuration = 600,
 		revealAnimationDelay = 1500;
-	
+
 	initHeadline();
-	
+
 
 	function initHeadline() {
 		//insert <i> element for each letter of a changing word
@@ -162,7 +162,7 @@ jQuery(document).ready(function($){
 		var duration = animationDelay;
 		$headlines.each(function(){
 			var headline = $(this);
-			
+
 			if(headline.hasClass('loading-bar')) {
 				duration = barAnimationDelay;
 				setTimeout(function(){ headline.find('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
@@ -188,16 +188,16 @@ jQuery(document).ready(function($){
 
 	function hideWord($word) {
 		var nextWord = takeNext($word);
-		
+
 		if($word.parents('.cd-headline').hasClass('type')) {
 			var parentSpan = $word.parent('.cd-words-wrapper');
-			parentSpan.addClass('selected').removeClass('waiting');	
-			setTimeout(function(){ 
-				parentSpan.removeClass('selected'); 
+			parentSpan.addClass('selected').removeClass('waiting');
+			setTimeout(function(){
+				parentSpan.removeClass('selected');
 				$word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
 			}, selectionDuration);
 			setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
-		
+
 		} else if($word.parents('.cd-headline').hasClass('letters')) {
 			var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
 			hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
@@ -227,33 +227,33 @@ jQuery(document).ready(function($){
 			$word.addClass('is-visible').removeClass('is-hidden');
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){ 
-				setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
+			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
+				setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
 			});
 		}
 	}
 
 	function hideLetter($letter, $word, $bool, $duration) {
 		$letter.removeClass('in').addClass('out');
-		
+
 		if(!$letter.is(':last-child')) {
-		 	setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);  
-		} else if($bool) { 
+		 	setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
+		} else if($bool) {
 		 	setTimeout(function(){ hideWord(takeNext($word)) }, animationDelay);
 		}
 
 		if($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
 			var nextWord = takeNext($word);
 			switchWord($word, nextWord);
-		} 
+		}
 	}
 
 	function showLetter($letter, $word, $bool, $duration) {
 		$letter.addClass('in').removeClass('out');
-		
-		if(!$letter.is(':last-child')) { 
-			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration); 
-		} else { 
+
+		if(!$letter.is(':last-child')) {
+			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration);
+		} else {
 			if($word.parents('.cd-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('waiting'); }, 200);}
 			if(!$bool) { setTimeout(function(){ hideWord($word) }, animationDelay) }
 		}
@@ -272,3 +272,53 @@ jQuery(document).ready(function($){
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
 });
+
+
+
+
+
+
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          // if ($target.is(":focus")) { // Checking if the target was focused
+          //   return false;
+          // } else {
+          //   $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+          //   $target.focus(); // Set focus again
+          // };
+        });
+      }
+    }
+  });
+
+
+	let mainNav = document.getElementById('js-menu');
+	let navBarToggle = document.getElementById('js-navbar-toggle');
+
+	navBarToggle.addEventListener('click', function () {
+	  mainNav.classList.toggle('active');
+	});
