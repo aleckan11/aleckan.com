@@ -1,3 +1,123 @@
+/*
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+(function($) {
+
+	var $window = $(window),
+		$body = $('body'),
+		$header = $('#header'),
+		$footer = $('#footer'),
+		$main = $('#main'),
+		settings = {
+
+			// Parallax background effect?
+				parallax: true,
+
+			// Parallax factor (lower = more intense, higher = less intense).
+				parallaxFactor: 20
+
+		};
+
+	// Breakpoints.
+		breakpoints({
+			xlarge:  [ '1281px',  '1800px' ],
+			large:   [ '981px',   '1280px' ],
+			medium:  [ '737px',   '980px'  ],
+			small:   [ '481px',   '736px'  ],
+			xsmall:  [ null,      '480px'  ],
+		});
+
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
+
+	// Touch?
+		if (browser.mobile) {
+
+			// Turn on touch mode.
+				$body.addClass('is-touch');
+
+			// Height fix (mostly for iOS).
+				window.setTimeout(function() {
+					$window.scrollTop($window.scrollTop() + 1);
+				}, 0);
+
+		}
+
+	// Footer.
+		breakpoints.on('<=medium', function() {
+			$footer.insertAfter($main);
+		});
+
+		breakpoints.on('>medium', function() {
+			$footer.appendTo($header);
+		});
+
+	// Header.
+
+		// Parallax background.
+
+			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
+				if (browser.name == 'ie'
+				||	browser.mobile)
+					settings.parallax = false;
+
+			if (settings.parallax) {
+
+				breakpoints.on('<=medium', function() {
+
+					$window.off('scroll.strata_parallax');
+					$header.css('background-position', '');
+
+				});
+
+				breakpoints.on('>medium', function() {
+
+					$header.css('background-position', 'left 0px');
+
+					$window.on('scroll.strata_parallax', function() {
+						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+					});
+
+				});
+
+				$window.on('load', function() {
+					$window.triggerHandler('scroll');
+				});
+
+			}
+
+	// Main Sections: Two.
+
+		// Lightbox gallery.
+			$window.on('load', function() {
+
+				$('#photography').poptrox({
+					caption: function($a) { return $a.next('h3').text(); },
+					overlayColor: '#2c2c2c',
+					overlayOpacity: 0.85,
+					popupCloserText: '',
+					popupLoaderText: '',
+					selector: '.work-item a.image',
+					usePopupCaption: true,
+					usePopupDefaultStyling: false,
+					usePopupEasyClose: false,
+					usePopupNav: true,
+					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
+				});
+
+			});
+
+})(jQuery);
+
+
+
 jQuery(document).ready(function($){
 	//set animation timing
 	var animationDelay = 2500,
@@ -10,12 +130,12 @@ jQuery(document).ready(function($){
 		typeLettersDelay = 150,
 		selectionDuration = 500,
 		typeAnimationDelay = selectionDuration + 800,
-		//clip effect 
+		//clip effect
 		revealDuration = 600,
 		revealAnimationDelay = 1500;
-	
+
 	initHeadline();
-	
+
 
 	function initHeadline() {
 		//insert <i> element for each letter of a changing word
@@ -42,7 +162,7 @@ jQuery(document).ready(function($){
 		var duration = animationDelay;
 		$headlines.each(function(){
 			var headline = $(this);
-			
+
 			if(headline.hasClass('loading-bar')) {
 				duration = barAnimationDelay;
 				setTimeout(function(){ headline.find('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
@@ -68,16 +188,16 @@ jQuery(document).ready(function($){
 
 	function hideWord($word) {
 		var nextWord = takeNext($word);
-		
+
 		if($word.parents('.cd-headline').hasClass('type')) {
 			var parentSpan = $word.parent('.cd-words-wrapper');
-			parentSpan.addClass('selected').removeClass('waiting');	
-			setTimeout(function(){ 
-				parentSpan.removeClass('selected'); 
+			parentSpan.addClass('selected').removeClass('waiting');
+			setTimeout(function(){
+				parentSpan.removeClass('selected');
 				$word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
 			}, selectionDuration);
 			setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
-		
+
 		} else if($word.parents('.cd-headline').hasClass('letters')) {
 			var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
 			hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
@@ -107,33 +227,33 @@ jQuery(document).ready(function($){
 			$word.addClass('is-visible').removeClass('is-hidden');
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){ 
-				setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
+			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
+				setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
 			});
 		}
 	}
 
 	function hideLetter($letter, $word, $bool, $duration) {
 		$letter.removeClass('in').addClass('out');
-		
+
 		if(!$letter.is(':last-child')) {
-		 	setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);  
-		} else if($bool) { 
+		 	setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
+		} else if($bool) {
 		 	setTimeout(function(){ hideWord(takeNext($word)) }, animationDelay);
 		}
 
 		if($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
 			var nextWord = takeNext($word);
 			switchWord($word, nextWord);
-		} 
+		}
 	}
 
 	function showLetter($letter, $word, $bool, $duration) {
 		$letter.addClass('in').removeClass('out');
-		
-		if(!$letter.is(':last-child')) { 
-			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration); 
-		} else { 
+
+		if(!$letter.is(':last-child')) {
+			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration);
+		} else {
 			if($word.parents('.cd-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('waiting'); }, 200);}
 			if(!$bool) { setTimeout(function(){ hideWord($word) }, animationDelay) }
 		}
@@ -152,3 +272,53 @@ jQuery(document).ready(function($){
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
 });
+
+
+
+
+
+
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          // if ($target.is(":focus")) { // Checking if the target was focused
+          //   return false;
+          // } else {
+          //   $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+          //   $target.focus(); // Set focus again
+          // };
+        });
+      }
+    }
+  });
+
+
+	let mainNav = document.getElementById('js-menu');
+	let navBarToggle = document.getElementById('js-navbar-toggle');
+
+	navBarToggle.addEventListener('click', function () {
+	  mainNav.classList.toggle('active');
+	});
